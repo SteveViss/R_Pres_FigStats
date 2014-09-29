@@ -1,8 +1,8 @@
 ---
-title       : 
-subtitle    : 
-author      : 
-job         : 
+title       : Outils de visualisation sur R
+subtitle    : Laboratoire de Biostatiques (Chapitre 2)
+author      : Steve Vissault
+job         : Laboratoire d'écologie théorique
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
