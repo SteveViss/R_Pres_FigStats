@@ -38,15 +38,14 @@ str(dat)
 head(dat)
 ```
 
-
 ---  Visualiser les données
 
 ## Visualiser les données ##
 
-On peut mettre en relation deux variables quantitatives avec la fonction  `plot()`:
+On peut mettre en relation deux variables quantitatives avec la fonction  `plot()`
 
 ```{r, fig.height = 5, fig.align = 'center', message = F}
-plot(x=dat$Sepal.Length,y=dat$Sepal.Width)
+plot(dat$Sepal.Length,dat$Sepal.Width)
 ```
 
 ---  Visualiser les données
@@ -60,5 +59,27 @@ plot(dat)
 ```
 
 **ATTENTION:** Il y a des bonnes et des mauvaises facons de représenter des données... 
+
+---  Visualiser les données
+
+## Visualiser les données ##
+
+Pour mettre en relation une variable qualitative avec une variable nominale, on utilise généralement la fonction `boxplot()` 
+    
+```{r, fig.height = 5, fig.align = 'center', message = F}
+boxplot(Sepal.Length ~ Species, data=dat)
+```
+    
+
+---  Visualiser les données
+
+## Visualiser les données ##
+
+Il existe une grande diversité de fonction graphique:
+    
+```{r, fig.height = 5, fig.align = 'center', message = F}
+boxplot(Sepal.Length ~ Species, data=dat)
+```
+    
 
 

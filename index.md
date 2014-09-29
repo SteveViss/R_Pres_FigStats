@@ -60,12 +60,11 @@ head(dat)
 ## 6          5.4         3.9          1.7         0.4  setosa
 ```
 
-
 ---  Visualiser les données
 
 ## Visualiser les données ##
 
-On peut mettre en relation deux variables quantitatives avec la fonction  `plot()`:
+On peut mettre en relation deux variables quantitatives avec la fonction  `plot()`
 
 
 ```r
@@ -87,6 +86,30 @@ plot(dat)
 
 <img src="assets/fig/unnamed-chunk-5.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
 
-**ATTENTION:** Il y a des bonnes facons de représenter des données...
+**ATTENTION:** Il y a des bonnes et des mauvaises facons de représenter des données... 
+
+---  Visualiser les données
+
+## Visualiser les données ##
+
+Pour mettre en relation une variable qualitative avec une variable quantitative, on utilise généralement la fonction `boxplot()`
+    
+
+```r
+boxplot(Sepal.Length ~ Species, data=dat)
+```
+
+<img src="assets/fig/unnamed-chunk-6.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" style="display: block; margin: auto;" />
+    
+
+- Test
+
+
+```r
+plot(dat)
+```
+
+<img src="assets/fig/unnamed-chunk-7.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" style="display: block; margin: auto;" />
+
 
 
