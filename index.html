@@ -114,7 +114,7 @@
   <article data-timings="">
     <p>On peut mettre en relation deux variables quantitatives avec la fonction  <code>plot()</code></p>
 
-<pre><code class="r">plot(x=dat$Sepal.Length,y=dat$Sepal.Width)
+<pre><code class="r">plot(dat$Sepal.Length,dat$Sepal.Width)
 </code></pre>
 
 <p><img src="assets/fig/unnamed-chunk-4.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" style="display: block; margin: auto;" /></p>
@@ -146,18 +146,25 @@
     <h2>Visualiser les données</h2>
   </hgroup>
   <article data-timings="">
-    <p>Pour mettre en relation une variable qualitative avec une variable quantitative, on utilise généralement la fonction <code>boxplot()</code></p>
+    <p>Pour mettre en relation une variable qualitative avec une variable nominale, on utilise généralement la fonction <code>boxplot()</code> </p>
 
 <pre><code class="r">boxplot(Sepal.Length ~ Species, data=dat)
 </code></pre>
 
 <p><img src="assets/fig/unnamed-chunk-6.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" style="display: block; margin: auto;" /></p>
 
-<ul>
-<li>Test</li>
-</ul>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
 
-<pre><code class="r">plot(dat)
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>Visualiser les données</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Il existe une grande diversité de fonction graphique:</p>
+
+<pre><code class="r">boxplot(Sepal.Length ~ Species, data=dat)
 </code></pre>
 
 <p><img src="assets/fig/unnamed-chunk-7.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" style="display: block; margin: auto;" /></p>
@@ -204,6 +211,12 @@
       <a href="#" target="_self" rel='tooltip' 
         data-slide=6 title='Visualiser les données'>
          6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Visualiser les données'>
+         7
       </a>
     </li>
   </ul>

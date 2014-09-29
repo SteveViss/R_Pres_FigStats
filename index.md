@@ -68,7 +68,7 @@ On peut mettre en relation deux variables quantitatives avec la fonction  `plot(
 
 
 ```r
-plot(x=dat$Sepal.Length,y=dat$Sepal.Width)
+plot(dat$Sepal.Length,dat$Sepal.Width)
 ```
 
 <img src="assets/fig/unnamed-chunk-4.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" style="display: block; margin: auto;" />
@@ -92,7 +92,7 @@ plot(dat)
 
 ## Visualiser les données ##
 
-Pour mettre en relation une variable qualitative avec une variable quantitative, on utilise généralement la fonction `boxplot()`
+Pour mettre en relation une variable qualitative avec une variable nominale, on utilise généralement la fonction `boxplot()` 
     
 
 ```r
@@ -102,14 +102,18 @@ boxplot(Sepal.Length ~ Species, data=dat)
 <img src="assets/fig/unnamed-chunk-6.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" style="display: block; margin: auto;" />
     
 
-- Test
+---  Visualiser les données
 
+## Visualiser les données ##
+
+Il existe une grande diversité de fonction graphique:
+    
 
 ```r
-plot(dat)
+boxplot(Sepal.Length ~ Species, data=dat)
 ```
 
 <img src="assets/fig/unnamed-chunk-7.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" style="display: block; margin: auto;" />
-
+    
 
 
