@@ -6,23 +6,59 @@ job         : Laboratoire d'écologie théorique
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
-widgets     : []            # {mathjax, quiz, bootstrap}
+widgets     : [quiz, bootstrap]            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 ---
 
-## Chargement des données
+## Chargement des données ##
 
+On charge un exemple de données:
 
-```r
+```{r}
 dat  <- iris
 ```
-> - **Iris** est un jeux de données intégré dans R
-> - Aprés avoir chargé un jeux de données, on fait quoi ?
 
---- .class #id 
+- **Iris** est un jeu de données intégré dans R (parfait pour des exemples)
+- Aprés avoir chargé un jeu de données, on fait quoi ?
 
-## Slide 2
+---
+## Chargement des données ##
+
+Vérification de la structure:
+```{r}
+str(dat)
+```
+
+---
+## Chargement des données ##
+
+À quoi ces données ressemblent?
+
+```{r}
+head(dat)
+```
 
 
+---  Visualiser les données
+
+## Visualiser les données ##
+
+On peut mettre en relation deux variables quantitatives avec la fonction  `plot()`:
+
+```{r, fig.height = 5, fig.align = 'center', message = F}
+plot(x=dat$Sepal.Length,y=dat$Sepal.Width)
+```
+
+---  Visualiser les données
+
+## Visualiser les données ##
+
+Ou tout mettre en relation...
+
+```{r, fig.height = 4.5, fig.align = 'center', message = F}
+plot(dat)
+```
+
+**ATTENTION:** Il y a des bonnes et des mauvaises facons de représenter des données... 
 
 
