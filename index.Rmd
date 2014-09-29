@@ -10,11 +10,14 @@ widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 ---
 
-## Read-And-Delete
+## Chargement des données
 
-1. Edit YAML front matter
-2. Write using R Markdown
-3. Use an empty line followed by three dashes to separate slides!
+
+```r
+dat  <- iris
+```
+> - **Iris** est un jeux de données intégré dans R
+> - Aprés avoir chargé un jeux de données, on fait quoi ?
 
 --- .class #id 
 
