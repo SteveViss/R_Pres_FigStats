@@ -12,15 +12,16 @@ mode        : selfcontained # {standalone, draft}
 
 ## Chargement des données ##
 
-On charge un exemple de données
+On charge un exemple de données dans R
 
 ```{r}
-dat  <- iris
+iris_data  <- iris
 ```
 
 - **Iris** est un jeu de données intégré dans R (parfait pour des exemples)
 
 **Aprés avoir chargé un jeu de données, on fait quoi ?**
+
 
 ---
 ## Chargement des données ##
@@ -28,7 +29,7 @@ dat  <- iris
 Vérification de sa structure
 
 ```{r}
-str(dat)
+str(iris_data)
 ```
 
 ---
@@ -37,7 +38,7 @@ str(dat)
 À quoi ces données ressemblent?
 
 ```{r}
-head(dat)
+head(iris_data)
 ```
 
 ---  Visualiser les données
@@ -47,29 +48,68 @@ head(dat)
 On peut mettre en relation deux variables quantitatives en créant un nuage de points 
 
 ```{r, fig.height = 5, fig.align = 'center', message = F}
-plot(dat$Sepal.Length,dat$Sepal.Width)
+plot(iris_data$Sepal.Length,iris_data$Sepal.Width)
 ```
 
 ---  Visualiser les données
 
 ## Visualiser les données ##
 
-La fonction `plot()` peut créer un nuage de points pour chaque paire de variables
+Je souhaite ajouter des couleurs en fonctions des espèces et des informations sur la figure:
+
+```{r, fig.height = 5, fig.align = 'center', message = F}
+plot(iris_data$Sepal.Length, iris_data$Sepal.Width, col=iris_data$Species)
+legend(6.5,4.4,unique(iris_data$Species),col=1:length(iris_data$Species),pch=1)
+text(4.5, 4.2, paste("n =",nrow(iris_data)))
+```
+
+---  Visualiser les données
+
+## Visualiser les données ##
+
+**Important:** R fonctionne avec des couches 
+
+```{r, fig.height = 5, fig.align = 'center', message = F}
+plot(iris_data$Sepal.Length, iris_data$Sepal.Width, col=iris_data$Species)
+legend(6.5,4.4,unique(iris_data$Species),col=1:length(iris_data$Species),pch=1)
+text(4.5, 4.2, paste("n =",nrow(iris_data)))
+```
+
+Les fonction ```legend()``` et - ```text()``` sont des exemples de couches.
+
+---  Visualiser les données
+
+## Visualiser les données ##
+
+Il existe plusieurs types de couches:
+
+- ```text()``` : Ajouter un couche texte sans mise en forme 
+- ```mtext()``` : Ajouter une couche texte avec mise en forme (police, taille de la police etc..)
+- ```lines()``` : Ajouter une couche ligne 
+- ```points()``` : Ajouter une couche de point(s)
+
+Plusieurs d'entre elles seront vu à l'intérieur de ce laboratoire.
+
+---  Visualiser les données
+
+## Visualiser les données ##
+
+La fonction `plot()` peut aussi créer un nuage de points pour chaque paire de variables
 
 ```{r, fig.height = 4.5, fig.align = 'center', message = F}
-plot(dat)
+plot(iris_data)
 ```
 
-**ATTENTION:** Il y a des bonnes et des mauvaises facons de représenter des données... 
+**ATTENTION:** Il y a des bonnes et des mauvaises façons de représenter des données... 
 
 ---  Visualiser les données
 
 ## Visualiser les données ##
 
-Pour illustrer la distribution d'une variable quantitative avec une variable nominale, on utilise généralement des boites à moustache
+Par exemple, pour illustrer la distribution d'une variable quantitative avec une variable nominale, on utilise généralement des boites à moustache
     
 ```{r, fig.height = 5, fig.align = 'center', message = F}
-boxplot(Sepal.Length ~ Species, data=dat)
+boxplot(Sepal.Length ~ Species, data=iris_data)
 ```
 
 ---  Visualiser les données
@@ -79,21 +119,25 @@ boxplot(Sepal.Length ~ Species, data=dat)
 Si je m'intéresse à la distribution de fréquence d'une variable quantitative, j'utilise plutôt **un histogramme**:
     
 ```{r, fig.height = 5, fig.align = 'center', message = F}
-hist(log(dat$Sepal.Length))
+hist(log(iris_data$Sepal.Length))
 ```
 
-Il éxiste une infinité de possibilités de graphiques sur R...
+---  Visualiser les données
+
+## Visualiser les données ##
+
+Il existe cependant une infinité de possibilités graphiques sur R...
+
+``` demo(graphics) ```
 
 --- Visualiser les données
 
 ## Visualiser les données ##
 
-**Qu'est ce qui n'est pas conforme dans ce graphique?**
-
-> - Le titre et le nom des axes doivent être changer, pour mieux décrire le contenu du graphique
+**Qu'est ce qui n'est pas encore conforme dans ce graphique?**
     
 ```{r, fig.height = 5, fig.align = 'center', message = F}
-hist(log(dat$Sepal.Length))
+hist(log(iris_data$Sepal.Length))
 ```
 
 --- Visualiser les données
@@ -101,16 +145,45 @@ hist(log(dat$Sepal.Length))
 ## Visualiser les données ##
     
 ```{r, fig.height = 5, fig.align = 'center', message = F}
-hist(log(dat$Sepal.Length),main = "Histogramme de fréquence ")
+hist(log(iris_data$Sepal.Length), main = "Histogramme de fréquence 
+     de la longueur des sépales chez Iris sp.",
+     xlab="Logaritme de la longueur des sépales (mm)", ylab="Fréquence")
 ```
+
+---  Visualiser les données
+
+## Visualiser les données ##
+
+Certains arguments de fonctions graphiques reviennent régulièrement:
+
+- **main**: Définir le titre principal du graphique
+- **sub**: Définir le sous-titre du graphique
+- **xlab, ylab**: Définir les titres des axes
+- **col**: Définir les couleurs des points
+- **pch**: Définir la forme des points
+- et bien d'autres encore..
+
+> - Votre meilleur(e) ami(e): `help()`
+
+> - Astuces: `help.search(keyword="")`
+
+
+
+--- Visualiser les données
+
+## Visualiser les données ##
+
+**Comment exporter un graphique ?**
 
 ---  Personnaliser les figures
 
 ## Bien illustrer ##
 
-**Trois choses primordiales:**
+**Quatre choses primordiales:**
 
-1. Utiliser un type de figure approprié à ce que l'on veut montrer (boxplot, plot, hist..)
-2. Bien décrire les variables d'interêts (Axes, légende, titre descriptif) - **Voir guide de rédaction**
-3. Ne pas hésitez à adapter (personnaliser) votre figure pour mettre en valeur votre résultat
+1. Explorer vos données
+2. Utiliser un type de figure approprié à ce que l'on veut montrer (boxplot, plot, hist..)
+3. Bien décrire les variables d'interêts utilisés (Nom des axes, légende, titre court mais descriptif) - **Voir guide de rédaction**
+4. Ne pas hésitez à adapter (personnaliser) votre figure pour mettre en valeur votre résultat
+
 

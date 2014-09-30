@@ -48,9 +48,9 @@
     <h2>Chargement des données</h2>
   </hgroup>
   <article data-timings="">
-    <p>On charge un exemple de données</p>
+    <p>On charge un exemple de données dans R</p>
 
-<pre><code class="r">dat  &lt;- iris
+<pre><code class="r">iris_data  &lt;- iris
 </code></pre>
 
 <ul>
@@ -70,7 +70,7 @@
   <article data-timings="">
     <p>Vérification de sa structure</p>
 
-<pre><code class="r">str(dat)
+<pre><code class="r">str(iris_data)
 </code></pre>
 
 <pre><code>## &#39;data.frame&#39;:    150 obs. of  5 variables:
@@ -92,7 +92,7 @@
   <article data-timings="">
     <p>À quoi ces données ressemblent?</p>
 
-<pre><code class="r">head(dat)
+<pre><code class="r">head(iris_data)
 </code></pre>
 
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
@@ -115,7 +115,7 @@
   <article data-timings="">
     <p>On peut mettre en relation deux variables quantitatives en créant un nuage de points </p>
 
-<pre><code class="r">plot(dat$Sepal.Length,dat$Sepal.Width)
+<pre><code class="r">plot(iris_data$Sepal.Length,iris_data$Sepal.Width)
 </code></pre>
 
 <p><img src="assets/fig/unnamed-chunk-4.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" style="display: block; margin: auto;" /></p>
@@ -129,14 +129,14 @@
     <h2>Visualiser les données</h2>
   </hgroup>
   <article data-timings="">
-    <p>La fonction <code>plot()</code> peut créer un nuage de points pour chaque paire de variables</p>
+    <p>Je souhaite ajouter des couleurs en fonctions des espèces et des informations sur la figure:</p>
 
-<pre><code class="r">plot(dat)
+<pre><code class="r">plot(iris_data$Sepal.Length, iris_data$Sepal.Width, col=iris_data$Species)
+legend(6.5,4.4,unique(iris_data$Species),col=1:length(iris_data$Species),pch=1)
+text(4.5, 4.2, paste(&quot;n =&quot;,nrow(iris_data)))
 </code></pre>
 
 <p><img src="assets/fig/unnamed-chunk-5.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" /></p>
-
-<p><strong>ATTENTION:</strong> Il y a des bonnes et des mauvaises facons de représenter des données... </p>
 
   </article>
   <!-- Presenter Notes -->
@@ -147,12 +147,16 @@
     <h2>Visualiser les données</h2>
   </hgroup>
   <article data-timings="">
-    <p>Pour illustrer la distribution d&#39;une variable quantitative avec une variable nominale, on utilise généralement des boites à moustache</p>
+    <p><strong>Important:</strong> R fonctionne avec des couches </p>
 
-<pre><code class="r">boxplot(Sepal.Length ~ Species, data=dat)
+<pre><code class="r">plot(iris_data$Sepal.Length, iris_data$Sepal.Width, col=iris_data$Species)
+legend(6.5,4.4,unique(iris_data$Species),col=1:length(iris_data$Species),pch=1)
+text(4.5, 4.2, paste(&quot;n =&quot;,nrow(iris_data)))
 </code></pre>
 
 <p><img src="assets/fig/unnamed-chunk-6.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" style="display: block; margin: auto;" /></p>
+
+<p>Les fonction <code>legend()</code> et - <code>text()</code> sont des exemples de couches.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -163,14 +167,16 @@
     <h2>Visualiser les données</h2>
   </hgroup>
   <article data-timings="">
-    <p>Si je m&#39;intéresse à la distribution de fréquence d&#39;une variable quantitative, j&#39;utilise plutôt <strong>un histogramme</strong>:</p>
+    <p>Il existe une plusieurs types de couches:</p>
 
-<pre><code class="r">hist(log(dat$Sepal.Length))
-</code></pre>
+<ul>
+<li><code>text()</code> : Ajouter un couche texte sans mise en forme </li>
+<li><code>mtext()</code> : Ajouter une couche texte avec mise en forme (police, taille de la police etc..)</li>
+<li><code>lines()</code> : Ajouter une couche ligne </li>
+<li><code>points()</code> : Ajouter une couche de point(s)</li>
+</ul>
 
-<p><img src="assets/fig/unnamed-chunk-7.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" style="display: block; margin: auto;" /></p>
-
-<p>Il éxiste une infinité de possibilités de graphiques sur R...</p>
+<p>Plusieurs d&#39;entre elles seront vu à l&#39;intérieur de ce laboratoire.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -181,16 +187,14 @@
     <h2>Visualiser les données</h2>
   </hgroup>
   <article data-timings="">
-    <p><strong>Qu&#39;est ce qui n&#39;est pas conforme dans ce graphique?</strong></p>
+    <p>La fonction <code>plot()</code> peut aussi créer un nuage de points pour chaque paire de variables</p>
 
-<ul class = "build incremental">
-<li>Le titre et le nom des axes doivent être changer, pour mieux décrire le contenu du graphique</li>
-</ul>
-
-<pre><code class="r">hist(log(dat$Sepal.Length))
+<pre><code class="r">plot(iris_data)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-8.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" style="display: block; margin: auto;" /></p>
+<p><img src="assets/fig/unnamed-chunk-7.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" style="display: block; margin: auto;" /></p>
+
+<p><strong>ATTENTION:</strong> Il y a des bonnes et des mauvaises façons de représenter des données... </p>
 
   </article>
   <!-- Presenter Notes -->
@@ -201,7 +205,25 @@
     <h2>Visualiser les données</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">hist(log(dat$Sepal.Length),main = &quot;Histogramme de fréquence &quot;)
+    <p>Par exemple, pour illustrer la distribution d&#39;une variable quantitative avec une variable nominale, on utilise généralement des boites à moustache</p>
+
+<pre><code class="r">boxplot(Sepal.Length ~ Species, data=iris_data)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-8.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>Visualiser les données</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Si je m&#39;intéresse à la distribution de fréquence d&#39;une variable quantitative, j&#39;utilise plutôt <strong>un histogramme</strong>:</p>
+
+<pre><code class="r">hist(log(iris_data$Sepal.Length))
 </code></pre>
 
 <p><img src="assets/fig/unnamed-chunk-9.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" style="display: block; margin: auto;" /></p>
@@ -210,16 +232,98 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-10" style="background:;">
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>Visualiser les données</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Il existe cependant une infinité de possibilités graphiques sur R...</p>
+
+<p><code>demo(graphics)</code></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h2>Visualiser les données</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>Qu&#39;est ce qui n&#39;est pas encore conforme dans ce graphique?</strong></p>
+
+<pre><code class="r">hist(log(iris_data$Sepal.Length))
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-10.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2>Visualiser les données</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">hist(log(iris_data$Sepal.Length), main = &quot;Histogramme de fréquence 
+     de la longueur des sépales chez Iris sp.&quot;,
+     xlab=&quot;Logaritme de la longueur des sépales (mm)&quot;, ylab=&quot;Fréquence&quot;)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-11.png" title="plot of chunk unnamed-chunk-11" alt="plot of chunk unnamed-chunk-11" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-14" style="background:;">
+  <hgroup>
+    <h2>Visualiser les données</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Certains arguments de fonctions graphiques reviennent régulièrement:</p>
+
+<ul>
+<li><strong>main</strong>: Définir le titre principal du graphique</li>
+<li><strong>sub</strong>: Définir le sous-titre du graphique</li>
+<li><strong>xlab, ylab</strong>: Définir les titres des axes</li>
+<li><strong>col</strong>: Définir les couleurs des points</li>
+<li><strong>pch</strong>: Définir la forme des points</li>
+<li>et bien d&#39;autres encore..</li>
+</ul>
+
+<ul class = "build incremental">
+<li><p>Votre meilleur(e) ami(e): <code>help()</code></p></li>
+<li><p>Astuces: <code>help.search(keyword=&quot;&quot;)</code></p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h2>Visualiser les données</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>Comment exporter un graphique ?</strong></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
   <hgroup>
     <h2>Bien illustrer</h2>
   </hgroup>
   <article data-timings="">
-    <p><strong>Trois choses primordiales:</strong></p>
+    <p><strong>Quatre choses primordiales:</strong></p>
 
 <ol>
+<li>Explorer vos données</li>
 <li>Utiliser un type de figure approprié à ce que l&#39;on veut montrer (boxplot, plot, hist..)</li>
-<li>Bien décrire les variables d&#39;interêts (Axes, légende, titre descriptif) - <strong>Voir guide de rédaction</strong></li>
+<li>Bien décrire les variables d&#39;interêts utilisés (Nom des axes, légende, titre court mais descriptif) - <strong>Voir guide de rédaction</strong></li>
 <li>Ne pas hésitez à adapter (personnaliser) votre figure pour mettre en valeur votre résultat</li>
 </ol>
 
@@ -287,8 +391,44 @@
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=10 title='Bien illustrer'>
+        data-slide=10 title='Visualiser les données'>
          10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='Visualiser les données'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='Visualiser les données'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='Visualiser les données'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='Visualiser les données'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='Visualiser les données'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='Bien illustrer'>
+         16
       </a>
     </li>
   </ul>
