@@ -55,7 +55,7 @@ plot(iris_data$Sepal.Length,iris_data$Sepal.Width)
 
 ## Visualiser les données ##
 
-Je souhaite ajouter des couleurs en fonctions des espèces et des informations sur la figure:
+Je souhaite ajouter des couleurs en fonction des espèces et des informations sur la figure:
 
 ```{r, fig.height = 5, fig.align = 'center', message = F}
 plot(iris_data$Sepal.Length, iris_data$Sepal.Width, col=iris_data$Species)

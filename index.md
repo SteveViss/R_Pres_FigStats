@@ -80,7 +80,7 @@ plot(iris_data$Sepal.Length,iris_data$Sepal.Width)
 
 ## Visualiser les données ##
 
-Je souhaite ajouter des couleurs en fonctions des espèces et des informations sur la figure:
+Je souhaite ajouter des couleurs en fonction des espèces et des informations sur la figure:
 
 
 ```r
@@ -112,7 +112,7 @@ Les fonction ```legend()``` et - ```text()``` sont des exemples de couches.
 
 ## Visualiser les données ##
 
-Il existe une plusieurs types de couches:
+Il existe plusieurs types de couches:
 
 - ```text()``` : Ajouter un couche texte sans mise en forme 
 - ```mtext()``` : Ajouter une couche texte avec mise en forme (police, taille de la police etc..)
