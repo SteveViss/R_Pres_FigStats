@@ -12,7 +12,7 @@ mode        : selfcontained # {standalone, draft}
 
 ## Chargement des données ##
 
-On charge un exemple de données:
+On charge un exemple de données
 
 
 ```r
@@ -20,12 +20,14 @@ dat  <- iris
 ```
 
 - **Iris** est un jeu de données intégré dans R (parfait pour des exemples)
-- Aprés avoir chargé un jeu de données, on fait quoi ?
+
+**Aprés avoir chargé un jeu de données, on fait quoi ?**
 
 ---
 ## Chargement des données ##
 
-Vérification de la structure:
+Vérification de sa structure
+
 
 ```r
 str(dat)
@@ -64,7 +66,7 @@ head(dat)
 
 ## Visualiser les données ##
 
-On peut mettre en relation deux variables quantitatives avec la fonction  `plot()`
+On peut mettre en relation deux variables quantitatives en créant un nuage de points 
 
 
 ```r
@@ -77,7 +79,7 @@ plot(dat$Sepal.Length,dat$Sepal.Width)
 
 ## Visualiser les données ##
 
-Ou tout mettre en relation...
+La fonction `plot()` peut créer un nuage de points pour chaque paire de variables
 
 
 ```r
@@ -92,7 +94,7 @@ plot(dat)
 
 ## Visualiser les données ##
 
-Pour mettre en relation une variable qualitative avec une variable nominale, on utilise généralement la fonction `boxplot()` 
+Pour illustrer la distribution d'une variable quantitative avec une variable nominale, on utilise généralement des boites à moustache
     
 
 ```r
@@ -100,20 +102,55 @@ boxplot(Sepal.Length ~ Species, data=dat)
 ```
 
 <img src="assets/fig/unnamed-chunk-6.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" style="display: block; margin: auto;" />
-    
 
 ---  Visualiser les données
 
 ## Visualiser les données ##
 
-Il existe une grande diversité de fonction graphique:
+Si je m'intéresse à la distribution de fréquence d'une variable quantitative, j'utilise plutôt **un histogramme**:
     
 
 ```r
-boxplot(Sepal.Length ~ Species, data=dat)
+hist(log(dat$Sepal.Length))
 ```
 
 <img src="assets/fig/unnamed-chunk-7.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" style="display: block; margin: auto;" />
+
+Il éxiste une infinité de possibilités de graphiques sur R...
+
+--- Visualiser les données
+
+## Visualiser les données ##
+
+**Qu'est ce qui n'est pas conforme dans ce graphique?**
+
+> - Le titre et le nom des axes doivent être changer, pour mieux décrire le contenu du graphique
     
 
+```r
+hist(log(dat$Sepal.Length))
+```
+
+<img src="assets/fig/unnamed-chunk-8.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" style="display: block; margin: auto;" />
+
+--- Visualiser les données
+
+## Visualiser les données ##
+    
+
+```r
+hist(log(dat$Sepal.Length),main = "Histogramme de fréquence ")
+```
+
+<img src="assets/fig/unnamed-chunk-9.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" style="display: block; margin: auto;" />
+
+---  Personnaliser les figures
+
+## Bien illustrer ##
+
+**Trois choses primordiales:**
+
+1. Utiliser un type de figure approprié à ce que l'on veut montrer (boxplot, plot, hist..)
+2. Bien décrire les variables d'interêts (Axes, légende, titre descriptif) - **Voir guide de rédaction**
+3. Ne pas hésitez à adapter (personnaliser) votre figure pour mettre en valeur votre résultat
 

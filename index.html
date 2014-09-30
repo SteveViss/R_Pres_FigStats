@@ -48,15 +48,16 @@
     <h2>Chargement des données</h2>
   </hgroup>
   <article data-timings="">
-    <p>On charge un exemple de données:</p>
+    <p>On charge un exemple de données</p>
 
 <pre><code class="r">dat  &lt;- iris
 </code></pre>
 
 <ul>
 <li><strong>Iris</strong> est un jeu de données intégré dans R (parfait pour des exemples)</li>
-<li>Aprés avoir chargé un jeu de données, on fait quoi ?</li>
 </ul>
+
+<p><strong>Aprés avoir chargé un jeu de données, on fait quoi ?</strong></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -67,7 +68,7 @@
     <h2>Chargement des données</h2>
   </hgroup>
   <article data-timings="">
-    <p>Vérification de la structure:</p>
+    <p>Vérification de sa structure</p>
 
 <pre><code class="r">str(dat)
 </code></pre>
@@ -112,7 +113,7 @@
     <h2>Visualiser les données</h2>
   </hgroup>
   <article data-timings="">
-    <p>On peut mettre en relation deux variables quantitatives avec la fonction  <code>plot()</code></p>
+    <p>On peut mettre en relation deux variables quantitatives en créant un nuage de points </p>
 
 <pre><code class="r">plot(dat$Sepal.Length,dat$Sepal.Width)
 </code></pre>
@@ -128,7 +129,7 @@
     <h2>Visualiser les données</h2>
   </hgroup>
   <article data-timings="">
-    <p>Ou tout mettre en relation...</p>
+    <p>La fonction <code>plot()</code> peut créer un nuage de points pour chaque paire de variables</p>
 
 <pre><code class="r">plot(dat)
 </code></pre>
@@ -146,7 +147,7 @@
     <h2>Visualiser les données</h2>
   </hgroup>
   <article data-timings="">
-    <p>Pour mettre en relation une variable qualitative avec une variable nominale, on utilise généralement la fonction <code>boxplot()</code> </p>
+    <p>Pour illustrer la distribution d&#39;une variable quantitative avec une variable nominale, on utilise généralement des boites à moustache</p>
 
 <pre><code class="r">boxplot(Sepal.Length ~ Species, data=dat)
 </code></pre>
@@ -162,12 +163,65 @@
     <h2>Visualiser les données</h2>
   </hgroup>
   <article data-timings="">
-    <p>Il existe une grande diversité de fonction graphique:</p>
+    <p>Si je m&#39;intéresse à la distribution de fréquence d&#39;une variable quantitative, j&#39;utilise plutôt <strong>un histogramme</strong>:</p>
 
-<pre><code class="r">boxplot(Sepal.Length ~ Species, data=dat)
+<pre><code class="r">hist(log(dat$Sepal.Length))
 </code></pre>
 
 <p><img src="assets/fig/unnamed-chunk-7.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" style="display: block; margin: auto;" /></p>
+
+<p>Il éxiste une infinité de possibilités de graphiques sur R...</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Visualiser les données</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>Qu&#39;est ce qui n&#39;est pas conforme dans ce graphique?</strong></p>
+
+<ul class = "build incremental">
+<li>Le titre et le nom des axes doivent être changer, pour mieux décrire le contenu du graphique</li>
+</ul>
+
+<pre><code class="r">hist(log(dat$Sepal.Length))
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-8.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>Visualiser les données</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">hist(log(dat$Sepal.Length),main = &quot;Histogramme de fréquence &quot;)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-9.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>Bien illustrer</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>Trois choses primordiales:</strong></p>
+
+<ol>
+<li>Utiliser un type de figure approprié à ce que l&#39;on veut montrer (boxplot, plot, hist..)</li>
+<li>Bien décrire les variables d&#39;interêts (Axes, légende, titre descriptif) - <strong>Voir guide de rédaction</strong></li>
+<li>Ne pas hésitez à adapter (personnaliser) votre figure pour mettre en valeur votre résultat</li>
+</ol>
 
   </article>
   <!-- Presenter Notes -->
@@ -217,6 +271,24 @@
       <a href="#" target="_self" rel='tooltip' 
         data-slide=7 title='Visualiser les données'>
          7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Visualiser les données'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='Visualiser les données'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='Bien illustrer'>
+         10
       </a>
     </li>
   </ul>
