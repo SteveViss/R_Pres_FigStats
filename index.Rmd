@@ -2,7 +2,7 @@
 title       : Outils de visualisation sur R
 subtitle    : Laboratoire de Biostatiques (Chapitre 2)
 author      : Steve Vissault
-job         : Laboratoire d'écologie théorique
+job         : Laboratoire d'ecologie theorique
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
@@ -154,7 +154,7 @@ hist(log(iris_data$Sepal.Length), main = "Histogramme de fréquence
 
 ## Visualiser les données ##
 
-Certains arguments de fonctions graphiques reviennent régulièrement:
+Certains arguments de fonction graphiques reviennent régulièrement:
 
 - **main**: Définir le titre principal du graphique
 - **sub**: Définir le sous-titre du graphique
@@ -165,7 +165,7 @@ Certains arguments de fonctions graphiques reviennent régulièrement:
 
 > - Votre meilleur(e) ami(e): `help()`
 
-> - Astuces: `help.search(keyword="")`
+> - Astuce: `help.search(keyword="")`
 
 
 
